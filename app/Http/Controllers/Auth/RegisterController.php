@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use App\Profile;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -68,7 +68,7 @@ class RegisterController extends Controller
         else
              $avatar='public/defaults/avatars/female.png';
 
-        return User::create([
+        $user= User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'gender' => $data['gender'],
@@ -76,5 +76,7 @@ class RegisterController extends Controller
             'slug' => str_slug($data['name']),
             'avatar' =>$avatar
         ]);
+        Profile::create(['user_id' => $user->id]);
+        return $user;
     }
 }
