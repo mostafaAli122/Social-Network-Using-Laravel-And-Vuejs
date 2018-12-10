@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use Session;
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 
 class ProfilesController extends Controller
@@ -11,4 +13,19 @@ class ProfilesController extends Controller
         return view('profiles.profile')
                 ->with('user',$user);
     }
+    public function edit(){
+        return view('profile.edit')->with('info',Auth::user()->profile);
+    }
+    public function update(Request $request){
+        $this->validate($request,[
+            'location' => 'required',
+            'about' => 'required|max:255'
+        ]);
+        Auth::user()->profile->update([
+            'location' => $r->location,
+            'about' => $r->about
+        ]);
+        Session::flash('success','Profile Updated Successfully.');
+        return redirect()->back();
+    } 
 }

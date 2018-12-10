@@ -13,6 +13,9 @@
                     <center>
                          <img src="{{ Storage::url($user->avatar)}}" width="70px" hight="70px" style="border-radius:50%;">
                     </center>
+                    <p class="text-center">
+                        <a href="{{ route('profile.edit')}}" class="btn btn-lg btn-info">Edit Your Profile</a>
+                    </p>
                 </div>
             </div>
         </div>
