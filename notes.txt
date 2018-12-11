@@ -55,3 +55,12 @@ Route::get('/hello',function(){
 **we gonna return responce()->json('ok',200); //Because most likely we gonna use addfriend method 
 			in vue.js  cause we dont want the user to refresh the page every time he addfriend
 			so it's gonna make an ajax request to our server ,add afriend and send the response
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+to create facker users 
+edit model factory if any changes happens to User table 
+run : php artisan tinker
+      factory('App\User',#num_of_fackUSers)->create()

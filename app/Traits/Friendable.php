@@ -5,9 +5,7 @@ use App\Friendship;
 
 trait Friendable
 {
-    public function hello(){
-        return "Hello Friends";
-    }
+   
     public function add_friend($user_requested_id){
 
         $Friendship=Friendship::create([
@@ -28,7 +26,7 @@ trait Friendable
            $friendship->update([
             'status' => 1
            ]);
-           return response()->json('ok',200);
+           return response()->json($friendship,200);
         }
         return response()->json('fail',501);
     }
