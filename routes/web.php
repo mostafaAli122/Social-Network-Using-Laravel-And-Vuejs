@@ -4,6 +4,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+#region check Friendable trait methods
 //to test adding and accepted friend
 Route::get('/add_friend',function(){
     return \App\User::first(1)->add_friend(2);
@@ -27,6 +29,12 @@ Route::get('/friends_ids',function(){
 Route::get('/is_friends_with',function(){
     return \App\User::find(1)->its_friends_with(2);
 });
+#endregion
+
+Route::get('/check_relationship_status/{id}',function($id){
+    return \App\User::find($id);
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

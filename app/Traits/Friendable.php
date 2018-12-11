@@ -45,17 +45,15 @@ trait Friendable
         $f1=Friendship::where('status',1)
                         ->where('requester',$this->id)
                         ->get();
-        foreach($f1 as $friendship);
+        foreach($f1 as $friendship)
             array_push($friends,\App\User::fiend($friendship->user_requested));
-        endforeach;
 
         $friends2=array();
         $f2=Friendship::where('status',1)
                         ->where('user_requested',$this->id)
                         ->get();
-        foreach($f2 as $friendship);
+        foreach($f2 as $friendship)
             array_push($friends2,\App\User::fiend($friendship->requester));
-        endforeach; 
         
         return array_merge($friends,$friends2);
 
@@ -65,9 +63,8 @@ trait Friendable
         $friendships=Friendship::where('status',0)
                             ->where('user_requested',$this->id)
                             ->get();
-        foreach($friendships as $friendship);
+        foreach($friendships as $friendship)
             array_push($users,\App\user::find($friendship->requester));
-        endforeach;
         return $users;
                             
     }
@@ -93,9 +90,8 @@ trait Friendable
         $friendships=Friendship::where('status',0)
                             ->where('requester',$this->id)
                             ->get();
-        foreach($friendships as $friendship);
+        foreach($friendships as $friendship)
             array_push($users,\App\Users::find($friendship->user_requested));
-        endforeach; 
         return $users;               
     }
 
