@@ -30,4 +30,24 @@ trait Friendable
         }
         return response()->json('fail',501);
     }
+    public function friends(){
+        $friends=array();
+        $f1=Friendship::where('status',1)
+                        ->where('requester',$this->id)
+                        ->get();
+        foreach($f1 as $friendship);
+            array_push($friends,\App\User::fiend($friendship->user_requested));
+        endforeach;
+
+        $friends2=array();
+        $f2=Friendship::where('status',1)
+                        ->where('user_requested',$this->id)
+                        ->get();
+        foreach($f2 as $friendship);
+            array_push($friends2,\App\User::fiend($friendship->requester));
+        endforeach; 
+        
+        return array_merge($friends,$friends2);
+
+    }
 }

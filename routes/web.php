@@ -4,12 +4,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+//to test adding and accepted friend
 Route::get('/add',function(){
-    return \App\User::first()->add_friend(2);
+    return \App\User::first(1)->add_friend(2);
 });
 Route::get('/accept',function(){
     return \App\User::find(2)->accept_friend(1);
+});
+//get all user's friend
+Route::get('/friends',function(){
+    return \App\User::find(1)->friends();
 });
 Auth::routes();
 
