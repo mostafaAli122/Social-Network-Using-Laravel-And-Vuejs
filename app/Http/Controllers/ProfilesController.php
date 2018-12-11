@@ -14,7 +14,7 @@ class ProfilesController extends Controller
                 ->with('user',$user);
     }
     public function edit(){
-        return view('profile.edit')->with('info',Auth::user()->profile);
+        return view('profiles.edit')->with('info',Auth::user()->profile);
     }
     public function update(Request $request){
         $this->validate($request,[
@@ -22,15 +22,16 @@ class ProfilesController extends Controller
             'about' => 'required|max:255'
         ]);
         Auth::user()->profile->update([
-            'location' => $r->location,
-            'about' => $r->about
+            'location' => $request->location,
+            'about' => $request->about
         ]);
         if($request->hasfile('avatar')){
             Auth::user()->update ([
-                'avatar' => $r->avatar->store('public/avatars')
+                'avatar' => $request->avatar->store('public/avatars')
             ]);
         }
         Session::flash('success','Profile Updated Successfully.');
         return redirect()->back();
     } 
+   
 }

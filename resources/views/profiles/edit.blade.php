@@ -24,7 +24,7 @@
                         </div>
                         <div class="form-group">
                             <div class="text-center">
-                                <button class="btn btn-primary btn-lg" type="submit"></button>
+                                <button class="btn btn-primary btn-lg" type="submit">Update Profile</button>
                             </div>
                         </div>
                    </form>

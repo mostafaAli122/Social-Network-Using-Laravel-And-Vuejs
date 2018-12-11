@@ -1,0 +1,57 @@
+ use traits in 'user.php' to give the user friendship functionality
+normally use Traits when U want to particular code or function common 
+just like inhertance (Trait:base class, User:derived/OR Extends Friendable into User)
+src={{Storage::url($user->profilel_image)}}
+when U Load image from Storge Directory & it's not supposed to be accessed be the internet thats the hall point 
+of storing images in storage so I can't accessed them with out giving permissoin
+so run the command: php artisan storage:link
+To make every thing in public dir accessable  
+
+//////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+using package called noty to flash success notification as soon as action is complited
+URL:ned.im/noty
+
+run commands :
+npm install noty
+npm install  //install every thing that placed in package.json file
+npm install gulp //so i can use laravel Elixis
+
+**go to gulpfile.js where laravel elixis configured
+U see it's compilied sass &app.js
+U gonna remove sass U don't need it in this project
+& add in resource\assets\js\components\bootstrap.js
+	require('noty') cause in app.js require('./bootstrap')
+as soon as this file compiled using 'webpack' its automatically added to "public/js/app.js"  
+***run command : gulp  //to make a refresh copy of "public/js/app.js"
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+use Friendable; //in class User
+use App\Traits\Friendable
+
+**and the class will look like this 
+namespace App\Traits;
+
+traits Friendable 
+{	
+	public function hello()
+	{	
+		return "hello friends";
+	}
+}
+
+**so when U wanna test this make A Route
+Route::get('/hello',function(){
+	return Auth::user()->hello; // call the methods directly from User Model
+});
+
+**when Make AddFriend Method in Friendable trait 
+**we gonna return responce()->json('ok',200); //Because most likely we gonna use addfriend method 
+			in vue.js  cause we dont want the user to refresh the page every time he addfriend
+			so it's gonna make an ajax request to our server ,add afriend and send the response

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 use App\Profile;
 use App\User;
 use Validator;
+use Session;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -77,6 +78,7 @@ class RegisterController extends Controller
             'avatar' =>$avatar
         ]);
         Profile::create(['user_id' => $user->id]);
+        Session::flash('success','Profile Updated Successfully.');
         return $user;
     }
 }
