@@ -5,15 +5,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 //to test adding and accepted friend
-Route::get('/add',function(){
+Route::get('/add_friend',function(){
     return \App\User::first(1)->add_friend(2);
 });
-Route::get('/accept',function(){
+Route::get('/accept_friend',function(){
     return \App\User::find(2)->accept_friend(1);
 });
 //get all user's friend
 Route::get('/friends',function(){
     return \App\User::find(1)->friends();
+});
+//get pending friends
+Route::get('/pending_friends',function(){
+    return \App\User::find(2)->pending_friend_requests();
+});
+//get friends ids
+Route::get('/friends_ids',function(){
+    return \App\User::find(1)->friends_ids();
+});
+//to check if user is friend 
+Route::get('/is_friends_with',function(){
+    return \App\User::find(1)->its_friends_with(2);
 });
 Auth::routes();
 
