@@ -53,4 +53,8 @@ Route::group(['middleware'=>'auth'],function(){
         'uses' => 'FriendshipsController@check',
         'as' => 'check'
     ]);
+    Route::get('/add_friend/{id}',[
+        'uses' => 'FriendshipsController@add_friend',
+        'as' => 'add_friend'
+    ]);
 });
