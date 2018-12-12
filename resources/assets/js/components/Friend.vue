@@ -37,6 +37,11 @@
                 .then((r)=>{
                    if(r.body == 1)
                         this.status='waiting'
+                        noty({
+                            type: 'success',
+                            layout: 'bottomLeft',
+                            text: 'Friend Request Sent .'
+                        })
                         this.loading = false
                 })
             },
@@ -46,6 +51,11 @@
                 .then((r)=>{
                    if(r.body == 1)
                         this.status='friends'
+                        noty({
+                            type: 'success',
+                            layout: 'bottomLeft',
+                            text: 'You Are Now Friends .'
+                        })
                         this.loading = false
                 })
             }
