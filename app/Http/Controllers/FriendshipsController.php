@@ -27,6 +27,8 @@ class FriendshipsController extends Controller
     }
     public function accept_friend($id){
         //sending notifications,emails,broadcasting
-        return Auth::user()->accept_friend($id);
+        $resp= Auth::user()->accept_friend($id);
+        User::find($id)->notify(new \App\Notifications\FriendRequestAccepted(Auth::user()));
+        return $resp;
     }
 }
