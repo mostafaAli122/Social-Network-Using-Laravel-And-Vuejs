@@ -17,6 +17,9 @@ Vue.component('friend', require('./components/Friend.vue'));
 
 Vue.component('notification', require('./components/Notification.vue'));
 
+import { store } from './store'
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    store
+
 });
