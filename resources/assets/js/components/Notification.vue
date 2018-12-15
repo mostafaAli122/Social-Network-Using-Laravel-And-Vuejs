@@ -18,6 +18,7 @@
                                           layout: 'bottomLeft',
                                           text: notification.name + notification.message
                                   })
+                                  this.$store.commit('add_not',notification)
                                   document.getElementById("noty_audio").play()
                     })
             }
