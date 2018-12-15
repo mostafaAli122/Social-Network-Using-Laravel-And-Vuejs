@@ -97,4 +97,19 @@ so laravel is gonning to broadcast notification or event
 											public: leaves an open channel meaning any one can subscribe to that channel 
 											, private: work little bit bifferent ,it receive notification from the backend 
 															and the "pucher" authenticate to see if the authenticated user or the person who listening to that channel at that moment is authorithed U can see this in "BroadcastServiceProvider.php" 
-											, present: the same as private channel except it's for multiple users knowledge presents between them all 
+											, present: the same as private channel except it's for multiple users knowledge presents between them all
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+Run : php artisan queue:table //to make job table
+Queue system : make job table in the database to save works to be done to faster user operation in the App
+			Ex:when U adding Afriend send notification first before sending notification to the User &broadcast event to pusher so save these jobs into Jobs table
+		**Add (implements ShouldQueue) to every notification class you want to apply Queue System To it 
+		**then Run : php artisan queue:work //to run those jobs in job table
