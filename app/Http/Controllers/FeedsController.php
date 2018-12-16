@@ -24,7 +24,7 @@ class FeedsController extends Controller
         foreach(Auth::user()->posts as $post):
             array_push($feed, $post);
         endforeach;
-
+    // sort feed according to its ids DESC
         usort($feed, function($p1, $p2){
             return $p1->id < $p2->id;
         });
