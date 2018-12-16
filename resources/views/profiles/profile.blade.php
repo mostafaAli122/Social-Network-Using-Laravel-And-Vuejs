@@ -10,7 +10,7 @@
                     </p>
                 </div>
                 <div class="panel-body">
-                    <img src="{{ Storage::url($user->avatar)}}" width="70px" hight="70px" style="border-radius:50%;">
+                    <img src="{{ $user->avatar}}" width="70px" hight="70px" style="border-radius:50%;">
                     <p class="text-center">{{ $user->profile->location}}</p>
                     <p class="text-center">
                         @if(Auth::id()==$user->id)
