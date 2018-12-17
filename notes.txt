@@ -113,3 +113,26 @@ Queue system : make job table in the database to save works to be done to faster
 			Ex:when U adding Afriend send notification first before sending notification to the User &broadcast event to pusher so save these jobs into Jobs table
 		**Add (implements ShouldQueue) to every notification class you want to apply Queue System To it 
 		**then Run : php artisan queue:work //to run those jobs in job table
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+To Search in users in real time in our application
+->we need to use a search service called ('Algolia')
+1-> go first and setup laravel scout
+Run :	*composer require laravel/scout
+		*to update laravel framework : composer require laravel/framework:^5.4.0 --update-with-dependencies
+		*Adding Laravel\Scout\ScoutServiceProvider::class Into App.php/config file
+		*php artisan vendor:publish --provider="Laravel\Scout\ScoutServiceProvider"
+		/*
+			use Illuminate\Database\Eloquent\Model;
+			class Post extends Model
+			{
+				use Searchable;
+			}
+		*/
+		*composer require algolia/algoliasearch-client-php
+		*php artisan scout:import "App\user"
