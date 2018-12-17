@@ -136,3 +136,6 @@ Run :	*composer require laravel/scout
 		*/
 		*composer require algolia/algoliasearch-client-php
 		*php artisan scout:import "App\user"
+
+		//Install the JavaScript API client//
+		*npm install algoliasearch --save
