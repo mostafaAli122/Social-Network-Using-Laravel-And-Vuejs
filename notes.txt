@@ -119,6 +119,7 @@ Queue system : make job table in the database to save works to be done to faster
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
+URL::https://laravel.com/docs/5.7/scout
 
 To Search in users in real time in our application
 ->we need to use a search service called ('Algolia')
@@ -138,4 +139,5 @@ Run :	*composer require laravel/scout
 		*php artisan scout:import "App\user"
 
 		//Install the JavaScript API client//
+		URL:https://www.algolia.com/doc/api-client/getting-started/install/javascript/
 		*npm install algoliasearch --save
